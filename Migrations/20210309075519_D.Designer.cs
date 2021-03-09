@@ -2,15 +2,17 @@
 using DemoApi.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace DemoApi.Migrations
 {
     [DbContext(typeof(EmployeeContext))]
-    partial class EmployeeContextModelSnapshot : ModelSnapshot
+    [Migration("20210309075519_D")]
+    partial class D
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -76,6 +78,21 @@ namespace DemoApi.Migrations
                     b.ToTable("Projects");
                 });
 
+            modelBuilder.Entity("EmployeeProject", b =>
+                {
+                    b.Property<int>("EmployeesEmployeeID")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("ProjectsProjectID")
+                        .HasColumnType("integer");
+
+                    b.HasKey("EmployeesEmployeeID", "ProjectsProjectID");
+
+                    b.HasIndex("ProjectsProjectID");
+
+                    b.ToTable("EmployeeProject");
+                });
+
             modelBuilder.Entity("DemoApi.Models.Address", b =>
                 {
                     b.HasOne("DemoApi.Models.Employee", "Employee")
@@ -104,6 +121,21 @@ namespace DemoApi.Migrations
                     b.Navigation("Employee");
 
                     b.Navigation("Project");
+                });
+
+            modelBuilder.Entity("EmployeeProject", b =>
+                {
+                    b.HasOne("DemoApi.Models.Employee", null)
+                        .WithMany()
+                        .HasForeignKey("EmployeesEmployeeID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DemoApi.Models.Project", null)
+                        .WithMany()
+                        .HasForeignKey("ProjectsProjectID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("DemoApi.Models.Employee", b =>

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace DemoApi.Models
@@ -10,5 +11,10 @@ namespace DemoApi.Models
         //
         //Navigation property Returns the Employee Address
         public virtual Address Address { get; set; }
+        
+        
+         public virtual ICollection<EmployeesInProject> EmployeesInProject { get; set; }
+
+
     }
 }

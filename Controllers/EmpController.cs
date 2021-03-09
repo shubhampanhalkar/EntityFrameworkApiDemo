@@ -26,26 +26,26 @@ namespace DemoApi.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Employee>>> GetEmployees()
         {
-           // return await _context.Employees.ToListAsync();
+            return await _context.Employees.Include(a=>a.Address).Include(a=>a.EmployeesInProject).ToListAsync();
               
-              List<Employee> employees = _context.Employees.ToList();
-              List<Address> addresses = _context.Addresses.ToList();
+            //   List<Employee> employees = _context.Employees.ToList();
+            //   List<Address> addresses = _context.Addresses.ToList();
 
-              foreach( var Employee in employees)
-              {
-                  foreach(var Address in addresses)
-                  {
-                     if(Employee.EmployeeID==Address.EmpID)
-                      {
-                          Employee.Address = Address;
-                          break;
-                      }
-                  }
+            //   foreach( var Employee in employees)
+            //   {
+            //       foreach(var Address in addresses)
+            //       {
+            //          if(Employee.EmployeeID==Address.EmpID)
+            //           {
+            //               Employee.Address = Address;
+            //               break;
+            //           }
+            //       }
                 
-              }
+            //   }
 
           
-            return employees;
+            // return employees;
         }
 
         // GET: api/Emp/5

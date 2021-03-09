@@ -1,8 +1,8 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "C:\\Users\\Invimatic\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\Invimatic\\.nuget\\packages"
+      "C:\\Users\\panha\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\panha\\.nuget\\packages"
     ]
   }
 }

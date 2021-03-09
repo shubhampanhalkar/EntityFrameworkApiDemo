@@ -2,15 +2,17 @@
 using DemoApi.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace DemoApi.Migrations
 {
     [DbContext(typeof(EmployeeContext))]
-    partial class EmployeeContextModelSnapshot : ModelSnapshot
+    [Migration("20210309063828_Demo")]
+    partial class Demo
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -46,36 +48,6 @@ namespace DemoApi.Migrations
                     b.ToTable("Employees");
                 });
 
-            modelBuilder.Entity("DemoApi.Models.EmployeesInProject", b =>
-                {
-                    b.Property<int>("EmployeeID")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("ProjectID")
-                        .HasColumnType("integer");
-
-                    b.HasKey("EmployeeID", "ProjectID");
-
-                    b.HasIndex("ProjectID");
-
-                    b.ToTable("EmployeesInProjects");
-                });
-
-            modelBuilder.Entity("DemoApi.Models.Project", b =>
-                {
-                    b.Property<int>("ProjectID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
-
-                    b.Property<string>("Name")
-                        .HasColumnType("text");
-
-                    b.HasKey("ProjectID");
-
-                    b.ToTable("Projects");
-                });
-
             modelBuilder.Entity("DemoApi.Models.Address", b =>
                 {
                     b.HasOne("DemoApi.Models.Employee", "Employee")
@@ -87,35 +59,9 @@ namespace DemoApi.Migrations
                     b.Navigation("Employee");
                 });
 
-            modelBuilder.Entity("DemoApi.Models.EmployeesInProject", b =>
-                {
-                    b.HasOne("DemoApi.Models.Employee", "Employee")
-                        .WithMany("EmployeesInProject")
-                        .HasForeignKey("EmployeeID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("DemoApi.Models.Project", "Project")
-                        .WithMany("EmployeesInProject")
-                        .HasForeignKey("ProjectID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Employee");
-
-                    b.Navigation("Project");
-                });
-
             modelBuilder.Entity("DemoApi.Models.Employee", b =>
                 {
                     b.Navigation("Address");
-
-                    b.Navigation("EmployeesInProject");
-                });
-
-            modelBuilder.Entity("DemoApi.Models.Project", b =>
-                {
-                    b.Navigation("EmployeesInProject");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Dotnet projects\\DemoApi\\DemoApi.csproj": {}
+    "D:\\Dotnet projects\\EntityFrameworkApiDemo\\DemoApi.csproj": {}
   },
   "projects": {
-    "D:\\Dotnet projects\\DemoApi\\DemoApi.csproj": {
+    "D:\\Dotnet projects\\EntityFrameworkApiDemo\\DemoApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Dotnet projects\\DemoApi\\DemoApi.csproj",
+        "projectUniqueName": "D:\\Dotnet projects\\EntityFrameworkApiDemo\\DemoApi.csproj",
         "projectName": "DemoApi",
-        "projectPath": "D:\\Dotnet projects\\DemoApi\\DemoApi.csproj",
-        "packagesPath": "C:\\Users\\Invimatic\\.nuget\\packages\\",
-        "outputPath": "D:\\Dotnet projects\\DemoApi\\obj\\",
+        "projectPath": "D:\\Dotnet projects\\EntityFrameworkApiDemo\\DemoApi.csproj",
+        "packagesPath": "C:\\Users\\panha\\.nuget\\packages\\",
+        "outputPath": "D:\\Dotnet projects\\EntityFrameworkApiDemo\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Invimatic\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\panha\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -91,7 +91,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     }
